@@ -18,16 +18,8 @@ class am_my_wid extends wp_widget
 	{
 		parent::__construct(false,$name = __('Am My Wid'));
 	}
-	/*function form()
-	{
-	}
-	function update()
-	{
-	}*/
-	
 	function widget($args, $instance)
 	{
-		
 	?>
     <div class="plug_title">Demo Plugin - Iteration 1</div>
     <div class="pop_container">

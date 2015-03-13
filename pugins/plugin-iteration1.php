@@ -32,7 +32,7 @@ class am_my_wid extends wp_widget
          </div>
        </div>
        <div class="pop_button">
-          <div style="text-align:center;padding:20px 0;"> 
+          <div class="pop_content"> 
             <input alt="#TB_inline?height=150&amp;width=300&amp;inlineId=examplePopup2" title="Pop up box" class="thickbox color_button2" type="button" value="Green"/>
             <div id="examplePopup2">
                <div class="gre_but">This is a Green Button</div>

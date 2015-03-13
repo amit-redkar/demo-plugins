@@ -8,7 +8,10 @@ Author: Amit Redkar
 Author URI: http://www.tasteintown.com
 License: none.
 */
-
+function ch2pit_queue_stylesheet() {
+	wp_enqueue_style( 'privateshortcodestyle',
+	plugins_url( 'mycss.css', __FILE__ ) );
+	}
 class am_my_wid extends wp_widget
 {
 	function __construct()
@@ -21,27 +24,26 @@ class am_my_wid extends wp_widget
 	function update()
 	{
 	}*/
+	
 	function widget($args, $instance)
 	{
-		wp_enqueue_script( 'jquery' );
-	wp_register_style( 'prefix-style', plugins_url('mycss.css', __FILE__) );
-	wp_enqueue_style( 'prefix-style' );
+		
 	?>
-    <div style="text-align:center;">Demo Plugin - Iteration 1</div>
-    <div style="width:240px;margin:auto;">
-        <div style="width:120px; margin:0 auto 20px;float:left;">
-          <div style="text-align:center;padding:20px 0;"> 
-            <input alt="#TB_inline?height=150&amp;width=300&amp;inlineId=examplePopup1" title="Pop up box" class="thickbox" type="button" value="Red"  style="background-color:red; padding:0;width:90px;height:25px;"/>
-            <div id="examplePopup1" style="display:none">
-              <div style="color:red;">This is a Red button</div>
+    <div class="plug_title">Demo Plugin - Iteration 1</div>
+    <div class="pop_container">
+        <div class="pop_button">
+          <div class="pop_content"> 
+            <input alt="#TB_inline?height=150&amp;width=300&amp;inlineId=examplePopup1" title="Pop up box" class="thickbox color_button1" type="button" value="Red"/>
+            <div id="examplePopup1">
+              <div class="red_but">This is a Red button</div>
             </div>
          </div>
        </div>
-       <div style="width:120px; margin:0 auto 20px;float:left;">
+       <div class="pop_button">
           <div style="text-align:center;padding:20px 0;"> 
-            <input alt="#TB_inline?height=150&amp;width=300&amp;inlineId=examplePopup2" title="Pop up box" class="thickbox" type="button" value="Green" style="background-color:green;padding:0;width:90px;height:25px;"/>
-            <div id="examplePopup2" style="display:none">
-               <div style="color:green;">This is a Green Button</div>
+            <input alt="#TB_inline?height=150&amp;width=300&amp;inlineId=examplePopup2" title="Pop up box" class="thickbox color_button2" type="button" value="Green"/>
+            <div id="examplePopup2">
+               <div class="gre_but">This is a Green Button</div>
             </div>
           </div>
        </div>
@@ -55,10 +57,5 @@ add_action('widgets_init', function()
 	add_thickbox();
 	
 });
-function my_scripts() {
-	wp_enqueue_script( 'jquery' );
-	wp_register_style( 'prefix-style', plugins_url('mycss.css', __FILE__) );
-	wp_enqueue_style( 'prefix-style' );
-}
-add_action('wp_enqueue_scripts','my_scripts');
+add_action( 'wp_enqueue_scripts', 'ch2pit_queue_stylesheet' );
 ?>

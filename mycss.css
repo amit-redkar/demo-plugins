@@ -1,0 +1,39 @@
+.plug_title{
+	text-align:center;
+	font-weight:600;
+	font-size:21px;
+}
+.pop_container{
+	width:240px;
+	margin:auto;	
+}
+.pop_button{
+	width:120px;
+	margin:0 auto 20px;
+	float:left;
+}
+.pop_content{
+	text-align:center;
+	padding:20px 0;
+}
+.color_button1{
+	background-color:#DF0000 !important;
+	padding:0 !important;
+	width:90px;
+	height:27px;
+}
+.color_button2{
+	background-color:#006400 !important;
+	padding:0 !important;
+	width:90px;
+	height:27px;
+}
+#examplePopup1, #examplePopup2{
+	display:none
+}
+.red_but{
+	color:#DF0000 ;
+}
+.red_but{
+	color:#006400;
+}

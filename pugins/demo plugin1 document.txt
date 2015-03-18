@@ -1,0 +1,65 @@
+1. A wordpress plugin starts with the following comments.
+
+/*
+Plugin Name: Demo Plugin - Iteration 1   //name of the plugin which will be displayed under the plugins section of the dashboard
+Plugin URI: http://www.tasteintown.com   //Downloaded from or can be downloaded from.
+Description: This is a basic plugin with two buttons, one red and the other green. Clicking on the individual buttons will open a pop up box with the respective color values.
+Version: 1.0
+Author: Amit Redkar   //Name of the plugin author
+Author URI: http://www.tasteintown.com 
+License: none.  
+*/
+
+-----------------------
+2. Too add a external stylesheet to a plugin write the following function.
+     
+     a. The function name should be unique for each css file.
+     b. mycss.css is the name of the css file which is in the same folder as the current file is saved. Change the plugin url if it is stored in a different folder.
+
+function ch2pit_queue_stylesheet() 
+{
+	wp_enqueue_style( 'privateshortcodestyle',
+	plugins_url( 'mycss.css', __FILE__ ) );
+}
+
+
+     c. Write the below line at the end of the page to call the function written above
+        The 1st parameter is a standard parameter which cannot be changed, the 2nd parameter is the name of the above function.
+
+
+add_action( 'wp_enqueue_scripts', 'ch2pit_queue_stylesheet' );
+
+
+------------------------
+3. Giving all the functionality to the plugin
+   
+     a. write am_my_wid extends wp_widget
+        am_my_wid(or any other name of your choice) is just a name of a new class that we are extending to the wp_widget which is already present in the function.php file.
+
+     b. parent::__construct(false,$name = __('Demo Iteration 1'));
+        Demo Iteration 1 - is the name name which will be displayed in the widget section of the dashboard after the plugin is activated.
+
+     c. Write all the html content in the function widget($args, $instance).
+
+class am_my_wid extends wp_widget
+{
+	function __construct()
+	{
+		parent::__construct(false,$name = __('Demo Iteration 1'));
+	}
+
+function widget($args, $instance)
+	{
+         //html content
+	}
+}
+
+-------------------------
+4.Initialize the above by writing 
+
+add_action('widgets_init', function()
+{
+	register_widget('am_my_wid');
+	add_thickbox();	
+});
+
